@@ -11,8 +11,6 @@ void swap(int *xp, int *yp)
 }  
 int main(){
 	int n,W;
-	int A[4][2] = {0};
-	printf("%d",sizeof(A));
 	printf("Enter the Capacity of the knapsack : ");
 	scanf("%d",&W );
 	printf("Enter the Number of elements in the knapsack");

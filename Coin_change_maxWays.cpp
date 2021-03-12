@@ -34,7 +34,7 @@ int main(){
 	for ( i = 1; i <= n; i++){
 		for( j = 1; j <= S; j ++){
 			if (arr[i-1] <= j){
-				dp[i][j] = (dp[i][j-arr[i-1]]   +    dp[i-1][j]);
+				dp[i][j] = (dp[i][j-arr[i-1]] + dp[i-1][j]);
 			}
 			
 			else if (arr[i-1] >j){

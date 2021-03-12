@@ -56,6 +56,6 @@ int knapsack(int *wt,int *val,int n,int W){
 			}
 		}
 	}
-	printf("%d",dp[n][W]);
+	//printf("%d",dp[n][W]);
 	return dp[n][W];
 }
