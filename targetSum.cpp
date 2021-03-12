@@ -5,15 +5,22 @@ int main(){
 	printf("Enter the length of the array\n");
 	int n;
 	scanf("%d",&n);
-	printf("\nEnter the sum to be found\n");
-	int S;
-	scanf("%d",&S);
+	printf("\nEnter the target sum\n");
+	int target;
+	scanf("%d",&target);
 	int *arr = (int *)malloc(n*sizeof(int));
 	printf("enter the array elements");
 	int i;
 	for (i = 0; i <= n-1;i++){
 		scanf("%d",&arr[i]);
 	}
+	int sum = 0;
+	for(i = 0; i <= n-1; i++){
+		sum+= arr[i];
+	}
+	//printf("%d",sum);
+	int S = (int)(sum+target)/2;
+	//printf("%d",S);
 	printf("\n");
 	int **dp = (int**)malloc((n+1)*sizeof(int*));
 	for ( i = 0; i <= n;i++){
@@ -34,7 +41,7 @@ int main(){
 	for ( i = 1; i <= n; i++){
 		for( j = 1; j <= S; j ++){
 			if (arr[i-1] <= j){
-				dp[i][j] = (dp[i-1][j-arr[i-1]]  ||  dp[i-1][j]);
+				dp[i][j] = (dp[i-1][j-arr[i-1]]   +    dp[i-1][j]);
 			}
 			
 			else if (arr[i-1] >j){
@@ -42,13 +49,6 @@ int main(){
 			}
 		}
 	}
+	printf("%d",dp[n][S] );
 	
-	
-	
-	if(dp[n][S] == 1){
-		printf("True");
-	}
-	else{
-		printf("False");
-	}
 }
